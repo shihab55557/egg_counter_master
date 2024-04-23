@@ -27,51 +27,12 @@ Project File Date:  04/22/2024
 <h2>Output:</h2>
 *** Using Compiler 'V6.21', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
+assembling startup_stm32g030xx.s...
 RTE/Device/STM32G030F6Px/system_stm32g0xx.c(286): warning: unsafe buffer access [-Wunsafe-buffer-usage]
   286 |   tmp = AHBPrescTable[((RCC->CFGR & RCC_CFGR_HPRE) >> RCC_CFGR_HPRE_Pos)];
       |         ^~~~~~~~~~~~~
 1 warning generated.
 compiling system_stm32g0xx.c...
-soft_i2c.c(4): warning: In file included from...
-./soft_i2c.h(37): warning: no newline at end of file [-Wnewline-eof]
-   37 | void     SoftI2C_Init(void);
-      |                             ^
-soft_i2c.c(5): warning: In file included from...
-./serial.h(12): warning: no newline at end of file [-Wnewline-eof]
-   12 | void    uart_send_num_float(float num);
-      |                                        ^
-soft_i2c.c(131): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
-  131 |   uint8_t sts=0;
-      |           ^
-soft_i2c.c(236): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
-  236 |         uint8_t sts=0;
-      |                 ^
-soft_i2c.c(257): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
-  257 |         uint8_t sts = SoftI2C_Receive_Raw_Byte();
-      |                 ^
-soft_i2c.c(284): warning: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
-  284 |                 sts = SoftI2C_Send_Byte(i<<1);
-      |                       ~~~~~~~~~~~~~~~~~ ~^~~
-soft_i2c.c(287): warning: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
-  287 |                         SoftI2C.SlaveAddress = i;
-      |                                              ~ ^
-soft_i2c.c(288): warning: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
-  288 |                         SoftI2C.WriteAddress = (SoftI2C.SlaveAddress<<1) | 0;
-      |                                              ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
-soft_i2c.c(289): warning: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
-  289 |                         SoftI2C.ReadAddress  = (SoftI2C.SlaveAddress<<1) | 1;
-      |                                              ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
-soft_i2c.c(304): warning: no newline at end of file [-Wnewline-eof]
-  304 |         
-      |         ^
-soft_i2c.c(16): warning: no previous extern declaration for non-static variable 'SoftI2C' [-Wmissing-variable-declarations]
-   16 | soft_i2c_t SoftI2C;
-      |            ^
-soft_i2c.c(16): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-   16 | soft_i2c_t SoftI2C;
-      | ^
-11 warnings generated.
-compiling soft_i2c.c...
 serial.c(2): warning: In file included from...
 ./serial.h(12): warning: no newline at end of file [-Wnewline-eof]
    12 | void    uart_send_num_float(float num);
@@ -144,6 +105,46 @@ serial.c(171): warning: unsafe buffer access [-Wunsafe-buffer-usage]
       |                                   ^~~~~~~
 21 warnings generated.
 compiling serial.c...
+soft_i2c.c(4): warning: In file included from...
+./soft_i2c.h(37): warning: no newline at end of file [-Wnewline-eof]
+   37 | void     SoftI2C_Init(void);
+      |                             ^
+soft_i2c.c(5): warning: In file included from...
+./serial.h(12): warning: no newline at end of file [-Wnewline-eof]
+   12 | void    uart_send_num_float(float num);
+      |                                        ^
+soft_i2c.c(131): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+  131 |   uint8_t sts=0;
+      |           ^
+soft_i2c.c(236): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+  236 |         uint8_t sts=0;
+      |                 ^
+soft_i2c.c(257): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+  257 |         uint8_t sts = SoftI2C_Receive_Raw_Byte();
+      |                 ^
+soft_i2c.c(284): warning: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  284 |                 sts = SoftI2C_Send_Byte(i<<1);
+      |                       ~~~~~~~~~~~~~~~~~ ~^~~
+soft_i2c.c(287): warning: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  287 |                         SoftI2C.SlaveAddress = i;
+      |                                              ~ ^
+soft_i2c.c(288): warning: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  288 |                         SoftI2C.WriteAddress = (SoftI2C.SlaveAddress<<1) | 0;
+      |                                              ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+soft_i2c.c(289): warning: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+  289 |                         SoftI2C.ReadAddress  = (SoftI2C.SlaveAddress<<1) | 1;
+      |                                              ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+soft_i2c.c(304): warning: no newline at end of file [-Wnewline-eof]
+  304 |         
+      |         ^
+soft_i2c.c(16): warning: no previous extern declaration for non-static variable 'SoftI2C' [-Wmissing-variable-declarations]
+   16 | soft_i2c_t SoftI2C;
+      |            ^
+soft_i2c.c(16): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+   16 | soft_i2c_t SoftI2C;
+      | ^
+11 warnings generated.
+compiling soft_i2c.c...
 main.c(2): warning: In file included from...
 ./serial.h(12): warning: no newline at end of file [-Wnewline-eof]
    12 | void    uart_send_num_float(float num);
@@ -276,7 +277,6 @@ C:/Users/Administrator/AppData/Local/Arm/Packs/Keil/STM32G0xx_DFP/1.5.0/Drivers/
       |                             ^
 28 warnings generated.
 compiling main.c...
-assembling startup_stm32g030xx.s...
 linking...
 Program Size: Code=2640 RO-data=244 RW-data=0 ZI-data=1640  
 ".\Objects\egg_counter_master.axf" - 0 Error(s), 61 Warning(s).
@@ -310,7 +310,7 @@ Package Vendor: Keil
       Source file:   Drivers/CMSIS/Device/ST/STM32G0xx/Source/Templates/arm/startup_stm32g030xx.s
       Include file:  Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g0xx.h
       Source file:   Drivers/CMSIS/Device/ST/STM32G0xx/Source/Templates/system_stm32g0xx.c
-Build Time Elapsed:  00:00:04
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

@@ -55,13 +55,9 @@ int main(void) {
 		
     while (1) {
 			
-				//uint8_t sts=0;
-			  //SoftI2C_Start();
-		    //sts = SoftI2C_Send_Byte(0xA6);
-			  //SoftI2C_Send_Byte(0xA6);
-			  uint16_t temp = SoftI2C_Read_Register(0x01);
+			  uint16_t temp = SoftI2C_Read_Register(0x01);   // read first register
 			  temp<<=8;
-        temp |= SoftI2C_Read_Register(0x02);
+        temp |= SoftI2C_Read_Register(0x02);           // read second register
 			  
 			  uart_send_char("Egg_Counter_Val ");
 			  uart_send_num_bin(temp);
