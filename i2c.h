@@ -77,39 +77,39 @@ void i2c_init(void){
 	I2C1->CR1     &=~ I2C_CR1_ANFOFF;          // noise filter enabled
 	I2C1->CR1     &=~ I2C_CR1_DNF_Msk;         // digital noise filter disabled
 	
-	I2C1->TIMINGR &=~ I2C_TIMINGR_PRESC_Msk;   
-	I2C1->TIMINGR |=  (1<<28);
-	I2C1->TIMINGR |=  (1<<29);
-	I2C1->TIMINGR |=  (1<<30);
-	I2C1->TIMINGR |=  (1<<31);                // prescaler is set as 15 (PRESC=15)
+	I2C1->TIMINGR &= (uint32_t)(~I2C_TIMINGR_PRESC_Msk);   
+	I2C1->TIMINGR |= (uint32_t)(1<<28);
+	I2C1->TIMINGR |= (uint32_t)(1<<29);
+	I2C1->TIMINGR |= (uint32_t)(1<<30);
+	I2C1->TIMINGR |= (uint32_t)(1<<31);                // prescaler is set as 15 (PRESC=15)
 	
 	
-	I2C1->TIMINGR &=~ I2C_TIMINGR_SCLDEL_Msk;  
-	I2C1->TIMINGR &=~ (1<<20);
-	I2C1->TIMINGR |=  (1<<21);
-	I2C1->TIMINGR &=~ (1<<22);
-	I2C1->TIMINGR &=~ (1<<23);                 // SCLDEL=2
+	I2C1->TIMINGR &= (uint32_t)(~I2C_TIMINGR_SCLDEL_Msk);  
+	I2C1->TIMINGR &= (uint32_t)(~(1<<20));
+	I2C1->TIMINGR |= (uint32_t)(1<<21);
+	I2C1->TIMINGR &= (uint32_t)(~(1<<22));
+	I2C1->TIMINGR &= (uint32_t)(~(1<<23));                 // SCLDEL=2
 	
-	I2C1->TIMINGR &=~ I2C_TIMINGR_SDADEL_Msk;  
-	I2C1->TIMINGR &=~ (1<<16);
-	I2C1->TIMINGR |=  (1<<17);
-	I2C1->TIMINGR &=~ (1<<18);
-	I2C1->TIMINGR &=~ (1<<19);                 // SDADEL =2
+	I2C1->TIMINGR &= (uint32_t)(~I2C_TIMINGR_SDADEL_Msk);  
+	I2C1->TIMINGR &= (uint32_t)(~(1<<16));
+	I2C1->TIMINGR |= (uint32_t)(1<<17);
+	I2C1->TIMINGR &= (uint32_t)(~(1<<18));
+	I2C1->TIMINGR &= (uint32_t)(~(1<<19));                 // SDADEL =2
 
 	I2C1->TIMINGR &=~ I2C_TIMINGR_SCLH_Msk;    
-	I2C1->TIMINGR |= (1<<8);
-	I2C1->TIMINGR |= (1<<9);
-	I2C1->TIMINGR |= (1<<10);
-	I2C1->TIMINGR &=~ (1<<11);
+	I2C1->TIMINGR |= (uint32_t)(1<<8);
+	I2C1->TIMINGR |= (uint32_t)(1<<9);
+	I2C1->TIMINGR |= (uint32_t)(1<<10);
+	I2C1->TIMINGR &= (uint32_t)(~(1<<11));
 	I2C1->TIMINGR &=~ (1<<12);
 	I2C1->TIMINGR &=~ (1<<13);
 	I2C1->TIMINGR &=~ (1<<14);
 	I2C1->TIMINGR &=~ (1<<15);                  // SCLH is set as 7
 	
 	I2C1->TIMINGR &=~ I2C_TIMINGR_SCLL_Msk;    
-	I2C1->TIMINGR |= (1<<0);
-	I2C1->TIMINGR |= (1<<1);
-	I2C1->TIMINGR |= (1<<2);
+	I2C1->TIMINGR |= (uint32_t)(1<<0);
+	I2C1->TIMINGR |= (uint32_t)(1<<1);
+	I2C1->TIMINGR |= (uint32_t)(1<<2);
 	I2C1->TIMINGR &=~ (1<<3);
 	I2C1->TIMINGR &=~ (1<<4);
 	I2C1->TIMINGR &=~ (1<<5);

@@ -45,20 +45,29 @@ int main(void) {
 	  uart_send_char("\r\nDebug Started\r\n");
 	  
 	  SoftI2C_Init();
-	  SoftI2C_Write_Register(0x2D, (1<<3) );
+	
+	  for(uint32_t i=0;i<1000000;i++){
+			 __NOP();
+		}
 	  
+	  //SoftI2C_Write_Register(0x2D, (1<<3) );
+	  
+		
     while (1) {
 			
-				uint8_t sts;
-			  SoftI2C_Start();
-		    sts = SoftI2C_Send_Byte(0xA6);
-        SoftI2C_Stop();			
-			
-			  uart_send_num(sts);
-			  uart_send_char("\r\n");
-			
+				//uint8_t sts=0;
+			  //SoftI2C_Start();
+		    //sts = SoftI2C_Send_Byte(0xA6);
+			  //SoftI2C_Send_Byte(0xA6);
+			  uint16_t temp = SoftI2C_Read_Register(0x01);
+			  temp<<=8;
+        temp |= SoftI2C_Read_Register(0x02);
 			  
-				for(uint32_t i=0;i<1000000;i++){
+			  uart_send_char("Egg_Counter_Val ");
+			  uart_send_num_bin(temp);
+			  uart_send_char("\r\n");
+				
+				for(uint32_t i=0;i<100000;i++){
 					__NOP();
 				}
 			

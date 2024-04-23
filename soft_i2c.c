@@ -279,11 +279,12 @@ uint8_t SoftI2C_Write_Register(uint8_t reg_addr, uint8_t data){
 
 uint8_t SoftI2C_Get_Slave_Address(void){
 	uint8_t sts;
-	for(int i=1;i<255;i++){   //read bits
+	for(int i=1;i<127;i++){   //read bits
 		SoftI2C_Start();
-		sts = SoftI2C_Send_Byte(i);
+		sts = SoftI2C_Send_Byte(i<<1);
+		SoftI2C_Stop();
 		if(sts==0){
-			SoftI2C.SlaveAddress = (i>>1);
+			SoftI2C.SlaveAddress = i;
 			SoftI2C.WriteAddress = (SoftI2C.SlaveAddress<<1) | 0;
 			SoftI2C.ReadAddress  = (SoftI2C.SlaveAddress<<1) | 1;
 			break;
